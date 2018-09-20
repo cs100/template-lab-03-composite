@@ -12,7 +12,7 @@ In the first part of this lab you will creating a composite pattern for represen
 
 would be represented with the following expression tree
 
-**Image Here**
+![example expression tree](https://github.com/cs100/template-lab-03-composite-strategy/blob/master/images/intro-tree.png?raw=true)
 
 The depth of each operation and its operands is based on their precedence, with the highest precedence operations being at the lowest levels of the tree. The first expression to be executed (in this case, `7 * 4`) will be at the deepest level. The result of that calculation then becomes an input to the addition (which becomes `3 + 28`), and that result becomes an input to the subtraction (`31 - 2`). The tree is evaluated recursively from the bottom to the top in order to yield the correct result.
 
