@@ -123,3 +123,7 @@ TEST(VectorContainerTestSet, SelectionSortTest) {
     EXPECT_EQ(container->at(2)->evaluate(), 28);
 }
 ```
+
+## Submission
+
+To receive credit for this lab you must show an example program to your TA that demonstrates the full functionality of these patterns along with the tests you have written for your different classes. 
