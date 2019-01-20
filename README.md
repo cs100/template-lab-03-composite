@@ -16,6 +16,12 @@ would be represented with the following expression tree
 
 The depth of each operation and its operands is based on their precedence, with the highest precedence operations being at the lowest levels of the tree. The first expression to be executed (in this case, `7 * 4`) will be at the deepest level. The result of that calculation then becomes an input to the addition (which becomes `3 + 28`), and that result becomes an input to the subtraction (`31 - 2`). The tree is evaluated recursively using a head recursive so the evaluation travels from the bottom to the top in order to yield the correct result.
 
+## Setup
+
+To begin this project you will need to add the google unit test framework as a submodule to your repository. You should then create a `main.cpp` and a `unit_test.cpp` the first of which should have a main function that returns 0, the second of which should intialize and execute all google tests. Finally, create a CMakeLists.txt file which is capable of generating two executables (1) a `lab` executable which uses the `main.cpp` file and (2) a `test` executable which uses the `unit_test.cpp`. Verify that this CMakeLists.txt file is capable of generating a makefile and that makefile can build the proper executables.
+
+## Implementation
+
 You will write a composite pattern for representing these expression trees, and are required to use the following abstract base class which has been provided to you in base.h:
 
 ```c++
