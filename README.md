@@ -70,5 +70,5 @@ For this lab, create several mocks for replacing the `Op` and `Rand` class for u
 
 ## Submission
 
-To receive credit for this lab you must show an example program to your TA that demonstrates the full functionality of your classes along with the tests you have written for your different classes.
+To receive credit for this lab you must show an example program to your TA that demonstrates the full functionality of this pattern, including any interactions with other patterns. You must also show your TA the tests that you have created for validating that your classes are functioning correctly.
 
