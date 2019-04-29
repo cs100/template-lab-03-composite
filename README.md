@@ -57,7 +57,7 @@ As stated above you will need to create unit tests for all the classes in this l
 ```c++
 class SevenOpMock: public Base {
     public:
-        OpMock() { };
+        SevenOpMock() { };
 
         virtual double evaluate() { return 7.5; }
         virtual string stringify() { return "7.5"; }
