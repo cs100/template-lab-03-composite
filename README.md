@@ -38,6 +38,8 @@ class Base {
 
 There are two main functions that you will need to develop for this lab. The first function, `evaluate()`, will return the value of a node while the second, `stringify()`, returns a string representation of the node. Remember that a node in this case could represent a single value or an entire subtree.
 
+> Note: you will need to include the above Base class header file in multiple subclasses, which will cause a duplication error. This error occurs because when you include a header file the contents of that file are essentially pasted to replace that include. This leads to multiple definitions of the Base calss when mulitple includes exist in your program. To solve this you will need to use [header guards](https://www.learncpp.com/cpp-tutorial/header-guards/) which exist to make sure only one copy of a header are included within a program.
+
 You will need to develop the following classes for creating your expression trees:
 
 * class `Op`: This class represents the [operands](https://en.wikipedia.org/wiki/Operand) in an expression, and can be any double value. It's string representation should be a string version of its double value.
