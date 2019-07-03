@@ -44,11 +44,11 @@ You will need to develop the following classes for creating your expression tree
 
 * class `Op`: This class represents the [operands](https://en.wikipedia.org/wiki/Operand) in an expression, and can be any double value. It's string representation should be a string version of its double value.
 * class `Rand`: This class is exactly the same as the `Op` class, but rather than being able to set its value its value is set during construction by the the equation `rand() % 100`
-* class `Mult`: This class represents the multiplication operation. It's string representation should be "\*" along with its operands.
-* class `Div`: This class represents the division operation. It's string representation should be "/" along with its operands.
-* class `Add`: This class represents the add operaiton. It's string representation should be "+" along with its operands.
-* class `Sub`: This class represents the subtraction operation. It's string representation should be "-" along with its operands.
-* class `Pow`: This class represents the [power or exponentiation](https://en.wikipedia.org/wiki/Exponentiation) operation. It's string representation should be "\*\*" along with its operands.
+* class `Mult`: This class represents the multiplication operation. It's string representation should be "\*" along with its operands (which might be operands or another operator).
+* class `Div`: This class represents the division operation. It's string representation should be "/" along with its operands (which might be operands or another operator).
+* class `Add`: This class represents the add operaiton. It's string representation should be "+" along with its operands (which might be operands or another operator).
+* class `Sub`: This class represents the subtraction operation. It's string representation should be "-" along with its operands (which might be operands or another operator).
+* class `Pow`: This class represents the [power or exponentiation](https://en.wikipedia.org/wiki/Exponentiation) operation. It's string representation should be "\*\*" along with its operands (which might be operands or another operator).
 
 You should notice that any parentheses that would normally be necessary in the expression can be implemented in the tree's structure rather than requiring a specific node or other element to represent it. It is recommend that you utilize the `to_string()` function introducted in c++11 to make the `stringify()` function. You may add parenthesies to your `stringify()` function to make it easier to read, but this is optional. You must create each operation separately and use google test unit tests to fully validate it is functioning before moving on. In this case, this means minimally testing each classes `stringify` and `evaluate` functions to make sure they are returning the correct values. Each operation along with its tests should be it’s own commit (or number of commits) to your GitHub repo. Optionally, you can use the [GitHub flow](https://guides.github.com/introduction/flow/) workflow and create each one as a branch and merge it in once it has been completed. This is an excellent choice if you and your partner are working on different sections at the same time.
 
