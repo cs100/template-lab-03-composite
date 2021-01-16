@@ -29,7 +29,7 @@ In this lab you will be creating several classes whose execution is dependent on
 ```c++
 class SevenOpMock: public Base {
     public:
-        SevenOpMock() { };
+        SevenOpMock() { }
 
         virtual double evaluate() { return 7.5; }
         virtual string stringify() { return "7.5"; }
@@ -46,8 +46,9 @@ You and your partner will develop a composite pattern for representing expressio
 class Base {
     public:
         /* Constructors */
-        Base() { };
-
+        Base() { }
+        virtual ~Base() {}
+        
         /* Pure Virtual Functions */
         virtual double evaluate() = 0;
         virtual string stringify() = 0;
