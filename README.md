@@ -14,7 +14,7 @@ would be represented with the following expression tree
 
 ![example expression tree](https://github.com/cs100/template-lab-03-composite-strategy/blob/master/images/intro-tree.png?raw=true)
 
-The depth of each operation and its operands is based on their precedence, with the highest precedence operations being at the lowest levels of the tree. The first expression to be executed (in this case, `7 * 4`) will be at the deepest level. The result of that calculation then becomes an input to the addition (which becomes `3 + 28`), and that result becomes an input to the subtraction (`31 - 2`). The tree is evaluated recursively using a head recursive so the evaluation travels from the bottom to the top in order to yield the correct result.
+The depth of each operation and its operands is based on their precedence, with the highest precedence operations being at the lowest levels of the tree. The first expression to be executed (in this case, `7 * 4`) will be at the deepest level. The result of that calculation then becomes an input to the addition (which becomes `3 + 28`), and that result becomes an input to the subtraction (`31 - 2`). The tree is evaluated recursively so the evaluation travels from the bottom to the top in order to yield the correct result.
 
 ## Initial Setup
 
@@ -24,7 +24,7 @@ Start by creating a `CMakeLists.txt` file which is capable of generating a `test
 
 ## Testing Mocks
 
-In this lab you will be creating a large number of classes whose execution is dependent on other classes. As we discussed during the lecture, these types of dependences can make system hard to test. To make testing easier, especially since you and your partner will be developing in tandem, you should create several mock classes that can be used for testing purposes. Below is a mock for a basic `Op` class which returns a static value.
+In this lab you will be creating several classes whose execution is dependent on other classes. As we discussed during the lecture, these types of dependences can make systems hard to test. To make testing easier, especially since you and your partner will be developing in tandem, you should create several mock classes that can be used for testing purposes. Below is a mock for a basic `Op` class which returns a static value.
 
 ```c++
 class SevenOpMock: public Base {
@@ -67,14 +67,15 @@ You will need to develop the following classes for creating your expression tree
 * class `Add`: This class represents the add operaiton. It's string representation should be "+" along with its operands (which might be operands or another operator).
 * class `Sub`: This class represents the subtraction operation. It's string representation should be "-" along with its operands (which might be operands or another operator).
 * class `Pow`: This class represents the [power or exponentiation](https://en.wikipedia.org/wiki/Exponentiation) operation. It's string representation should be "\*\*" along with its operands (which might be operands or another operator).
+* class `Neg`: This class represents the negation operation. It's string representation should be "\~" followed by its operand (which might be an operand or another operator).  Note that we are using the tilde (~) instead of the hyphen (-) for negation to simplify the lab.
 
-> Note: Any parentheses that would normally be necessary in the expression can be implemented in the tree's structure rather than requiring a specific node or other element to represent it. It is recommend that you utilize the `to_string()` function introducted in c++11 to make the `stringify()` function. You may add parenthesies to your `stringify()` function to make it easier to read, but this is optional. 
+> Note: To avoid ambiguities in the string representation, add parenthesis around all expressions.  Thus, for example, "((~(3+4))**((2+3)-(~1)))" would be one suitable string representation, though variation is permitted.  You may use utilize the `to_string()` function introducted in c++11 to make the `stringify()` function.
 
 You must create each operation separately and use google test unit tests to fully validate it is functioning before moving on. Make sure to fully test all the functions (`evaluate()` and `stringify()` along with any helper functions) with a range of possible values (both valid and invalid) and using a range of input types where appropriate (for example, use a `Mult` as one of the children when testing an `Add` class and vice-versa). You and your partner should use the [GitHub flow](https://guides.github.com/introduction/flow/) workflow to work on different classes simultantely and then use pull requests (with reviews) to merge code into the `master` branch. For this lab it is recommended that you make one commit per class declaration, function definition, and added unit test.
 
 ## "Production" Executable
 
-So far you have developed the classes necessary to build the composite structure and have written tests to validate that they are working properly. Most development work in industry is like this, developing a new classes and functions or modifying existing ones so they work seemelessly in the larger existing system. For this lab integrating your classes into the "production" system means validating that it works with the `main.cpp` file that we provided for you. Add any necessary headers to the `main.cpp` file so that it will compile correctly, then modify your `CMakeListst.txt` file so it can create a new executable `lab` which uses the `main.cpp` file for its main. Once you have done that build and execute the `lab` executable and validate that everything works as exepcted (Note: you will need to run `cmake3 .` (or simply `cmake .` if not on hammer) after modifying your `CMakeLists.txt` file before running `make` to generate the new executable).
+So far you have developed the classes necessary to build the composite structure and have written tests to validate that they are working properly. Most development work in industry is like this, developing a new classes and functions or modifying existing ones so they work seemelessly in a larger existing system. For this lab integrating your classes into the "production" system means validating that it works with the `main.cpp` file that we provided for you. Add any necessary headers to the `main.cpp` file so that it will compile correctly, then modify your `CMakeListst.txt` file so it can create a new executable `lab` which uses the `main.cpp` file for its main. Once you have done that build and execute the `lab` executable and validate that everything works as exepcted (Note: you will need to run `cmake3 .` (or simply `cmake .` if not on hammer) after modifying your `CMakeLists.txt` file before running `make` to generate the new executable).
 
 ## Submission
 
